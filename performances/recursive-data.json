@@ -1,0 +1,26 @@
+{
+    "recursiveIterations": {
+        "puzzles/easy1.txt": 0,
+        "puzzles/easy2.txt": 0,
+        "puzzles/empty.txt": 46,
+        "puzzles/hard1.txt": 48,
+        "puzzles/hard2.txt": 0,
+        "puzzles/extreme.txt": 3,
+        "puzzles/extreme2.txt": 4,
+        "puzzles/extreme3.txt": 48,
+        "puzzles/extreme4.txt": 0,
+        "puzzles/assignment.txt": 0
+    },
+    "backtrackings": {
+        "puzzles/easy1.txt": 0,
+        "puzzles/easy2.txt": 0,
+        "puzzles/empty.txt": 0,
+        "puzzles/hard1.txt": 20,
+        "puzzles/hard2.txt": 0,
+        "puzzles/extreme.txt": 1,
+        "puzzles/extreme2.txt": 1,
+        "puzzles/extreme3.txt": 20,
+        "puzzles/extreme4.txt": 0,
+        "puzzles/assignment.txt": 0
+    }
+}
