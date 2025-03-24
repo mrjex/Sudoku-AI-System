@@ -1,216 +1,172 @@
-# AI Project - Joel Mattsson's Sudoku System
+# Sudoku AI System 🧩
 
-This system was developed as an individual assignment in 2024 October during my exchange studies in Italy. It covers Sudoku with recursion as well as optimization. As the first introductory assignment of `Foundations of Artificial Intelligence` we had the opportunity to compare backtracking depth-first-search based approach to a local-search based one. The interesting topic of this assignment is the optimization that Simulated Annealing uses, as it simulates in one way or another artificial intelligence, considering the concept of trial and error and learning from past experiences as a normal human being.
+> An Intelligent Sudoku Solver implementing Backtracking and Simulated Annealing Algorithms
 
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![AI](https://img.shields.io/badge/AI-Simulated%20Annealing-green)](https://en.wikipedia.org/wiki/Simulated_annealing)
+[![Algorithm](https://img.shields.io/badge/Algorithm-Backtracking-orange)](https://en.wikipedia.org/wiki/Backtracking)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-## Table of Contents
+## 📑 Table of Contents
 
-- [AI Project - Joel Mattsson's Sudoku System](#ai-project---joel-mattssons-sudoku-system)
-  - [Table of Contents](#table-of-contents)
-  - [Getting Started](#getting-started)
-    - [Configuration Demos](#configuration-demos)
-      - [Backtracking \& Constraint Propagation](#backtracking--constraint-propagation)
-      - [Simulated Annealing](#simulated-annealing)
-  - [Adding your own puzzle](#adding-your-own-puzzle)
-  - [System Overview](#system-overview)
-    - [Python Modules](#python-modules)
-    - [Directories](#directories)
-      - [Puzzles Directory](#puzzles-directory)
-      - [Performances Directory](#performances-directory)
-      - [Graphs Directory](#graphs-directory)
+- [Overview](#-overview)
+- [Features](#-features)
+- [Getting Started](#-getting-started)
+- [Configuration Guide](#-configuration-guide)
+- [Adding Custom Puzzles](#-adding-custom-puzzles)
+- [System Architecture](#-system-architecture)
+- [Performance Analysis](#-performance-analysis)
+- [Technical Documentation](#-technical-documentation)
 
+## 🎯 Overview
 
+Developed during my exchange studies in Italy (October 2024), this advanced Sudoku solving system showcases the power of artificial intelligence through two distinct approaches:
 
-## Getting Started
+- **Backtracking with Constraint Propagation**: A systematic depth-first search strategy
+- **Simulated Annealing**: An optimization algorithm inspired by metallurgical annealing
 
-This is a brief introduction to getting started and setting up this project. In order to interact and run the project, there are two files you need to pay attentiont to:
+The system demonstrates how AI can simulate human-like problem-solving through trial, error, and learning from past experiences.
 
-- **main.py:** This is the only entrypoint of the system. All you need to do is to run this script. No modifications in this file is needed, as there are no configuration variables located in this file.
+## ✨ Features
 
-- **utils.py:** This is the only file with modifiable configuration variables. The system I constructed provides options for you as the developer. Essentially, there are 5 variables you need to be aware:
+- **Dual Solving Algorithms**:
+  - 🔍 Backtracking with constraint propagation
+  - 🧪 Simulated annealing optimization
+- **Flexible Configuration**:
+  - Multiple puzzle execution modes
+  - Customizable solving parameters
+- **Performance Analytics**:
+  - Real-time solving metrics
+  - Comparative algorithm analysis
+- **Visual Insights**:
+  - Performance graphs
+  - Solution visualization
 
-  - `runBacktrackConstraintAlgorithm` is a boolean and allows you to toggle between running the backtracking and simulated annealing algorithm.
+## 🚀 Getting Started
 
-  - `OPTION` is an integer with possible values ranging from 1-3. Note that Simulated Annealing does not provide an option for executing preferences and always defaults to running two puzzles in parallel. However, the backtracking algorithm has three different options for running puzzles based on what you initialize the variable to. Setting it to 1 indicates that only ONE selected puzzle will be executed when you run *main.py*. The second option runs two puzzles and compares them, and the third option runs a list of puzzles in the same go.
+### Prerequisites
+- Python 3.8+
+- Required packages (see `requirements.txt`)
 
-  - `SELECTED_PUZZLE` Represents the ONE puzzle you want to run if you set **OPTION=1** and **runBacktrackConstraintAlgorithm=True**. Once again, the first option is only applicable to the backtracking algorithm, and assigning the boolean to false would mean that the simulated annealing algorithm is executed on its one an only option, which is governed by the next variable.
+### Quick Start
+1. Clone the repository
+2. Configure settings in `utils.py`
+3. Run `main.py`
 
-  - `EASY_HARD_PUZZLES` is a dictionary of **two** key-value pairs, where the values are directories to the corresponding .txt puzzles. The puzzles contained in this variable will be executed if you set **OPTION=2** or if you set **runBacktrackConstraintAlgorithm=False** to run Simulated Annealing. In other words, this is an option for both backtracking and simulated annealing algorithms.
+## ⚙️ Configuration Guide
 
-  - `SELECTED_PUZZLES_LIST` is a list of all the puzzles that will be solved when running the program. Set **OPTION=3** and **runBacktrackConstraintAlgorithm=True** to successfuly enable this option
+The system offers flexible configuration through `utils.py`:
 
+| Parameter | Type | Description | Options |
+|-----------|------|-------------|----------|
+| `runBacktrackConstraintAlgorithm` | Boolean | Algorithm selection | `True`: Backtracking, `False`: Simulated Annealing |
+| `OPTION` | Integer | Execution mode | `1`: Single puzzle, `2`: Two puzzles, `3`: Multiple puzzles |
+| `SELECTED_PUZZLE` | String | Single puzzle path | Active when `OPTION=1` |
+| `EASY_HARD_PUZZLES` | Dict | Two puzzle paths | Active when `OPTION=2` |
+| `SELECTED_PUZZLES_LIST` | List | Multiple puzzle paths | Active when `OPTION=3` |
 
-### Configuration Demos
-
-Considering the options available in *utils.py*, there are **4 different settings in total** that you as a developer can configure to run the system. Below, each and every possible configuration is demonstrated when executing the system:
-
+### 🎮 Demo Configurations
 
 #### Backtracking & Constraint Propagation
 
-*Run **ONE** puzzle:*
-
+**Single Puzzle Mode:**
 ![backtrack-option-1](readme-material/backtrack-option1.mp4)
+*Solving a single puzzle using backtracking*
 
-
-*Run **TWO** puzzles:*
-
+**Dual Puzzle Mode:**
 ![backtrack-option-2](readme-material/backtrack-option2.mp4)
+*Comparative analysis of two puzzles*
 
-
-*Run **MULTIPLE** puzzles:*
-
+**Multi-Puzzle Mode:**
 ![backtrack-option-3](readme-material/backtrack-option3.mp4)
-
+*Batch processing of multiple puzzles*
 
 #### Simulated Annealing
 
-*Run **TWO** puzzles:*
-
+**Optimization Process:**
 ![simulated-annealing](readme-material/simulated-annealing.mp4)
+*Temperature-based optimization in action*
 
+## 📝 Adding Custom Puzzles
 
-## Adding your own puzzle
+### Supported Formats
 
-To add your own puzzle and solve it with this program, you need to paste it into a .txt file in `/tests` directory, and then, based on your configured settings in `utils.py`, specify its path in the corresponding variable (*SELECTED_PUZZLE*, *EASY_HARD_PUZZLES* or *SELECTED_PUZZLES_LIST*). The format must also conform to those of which are supported by the system. In essence, the following cases are supported:
-
-- Accepts **'.'** and **'0'** as empty cells
-
-- Accepts **space separation** of all cells
-
-- Accepts **'|'** as a boundary between subgrids
-
-
-If the format of your puzzle is **invalid** or if the puzzle is **unsolvable**, the terimal will output the follwing message:
-
-- *The provided Sudoku board in at least one of `{SELECTED_PUZZLE_FILES_HERE}` is either unsolvable or has invalid formatting. Keep in mind that all direct and indirect constraints of the input board must be satisfied, and check the formatting of the other .txt files in '/puzzles' directory.*
-
-
-Now, two boards of valid formatting will be displayed to avoid confusion:
-
-
-*Example 1 - All cells are empty:*
-
-```
+```python
+# Format 1: Simple Grid
 0 0 0 0 0 0 0 0 0
 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0
-```
+...
 
-*Example 2 - Using '|' to separate subgrids*
-
-```
+# Format 2: Subgrid Separation
 5 3 . |. 7 . |. . .
 6 . . |1 9 5 |. . .
-. 9 8 |. . . |. 6 .
-------+------+------
-8 . . |. 6 . |. . 3
-4 . . |8 . 3 |. . 1
-7 . . |. 2 . |. . 6
-------+------+------
-. 6 . |. . . |2 8 .
-. . . |4 1 9 |. . 5
-. . . |. 8 . |. 7 9
+...
 ```
 
-Lastly, specify the name of the .txt file in *utils.py* and run the entrypoint *main.py*
+### Format Rules
+- Empty cells: Use `.` or `0`
+- Cell separation: Single space
+- Subgrid boundaries: `|` (optional)
+- Grid size: 9x9
 
-
-
-## System Overview
-
-Before presenting the obtained results, a brief overview of the developed system’s modules and abilities will be explained, since the results are acquired/gathered/based on the system’s structure.
+## 🏗 System Architecture
 
 ![system-data-flow](readme-material/system-data-flow.PNG)
+*System data flow and component interaction*
 
+### 📦 Core Components
 
-### Python Modules
+- **`main.py`**: System entry point and orchestrator
+- **`utils.py`**: Configuration and utility functions
+- **`visualization.py`**: Performance visualization engine
+- **`sudokuPropagation.py`**: Backtracking implementation
+- **`sudokuAnnealing.py`**: Simulated annealing implementation
+- **`puzzleParser.py`**: Input processing module
 
-- **utils.py:** Developer configurations and refactored general functions used across many Python modules
-
-- **main.py:** Main entrypoint of system. Execution input and output occurs in this file. Imports all other modules
-
-- **visualization.py:** Only responsible for the fronted plotting using matplotlib. It reads the data generated from *sudokuPropagation.py* and *sudokuAnnealing.py* via their respective declared objects in *main.py*
-
-- **sudokuPropagation.py:** Implemented functionality for the *Backtracking & Constraint Propagation* approach, refactored into an object. Note that many general functions are used from the imported module *utils.py*
-
-- **sudokuAnnealing.py:** Implemented functionality for the *Simulated Annealing* approach, refactored into an object. Note that many general functions are used from the imported module *utils.py*
-
-- **puzzleParser:** Responsible for parsing a given Sudoku puzzle from a .txt file in `/puzzles` directory into a format comprehensible for this system. More specifically, *sudokuAnnealing.py* and *sudokuPropagation.py* expects to recieve the parsed formats. Decomposed into 3 main parts, the parsing method looks like this:
-
-
-*Step 1 - Read .txt file*
+### 📂 Directory Structure
 
 ```
-5 3 . |. 7 . |. . .
-6 . . |1 9 5 |. . .
-. 9 8 |. . . |. 6 .
-------+------+------
-8 . . |. 6 . |. . 3
-4 . . |8 . 3 |. . 1
-7 . . |. 2 . |. . 6
-------+------+------
-. 6 . |. . . |2 8 .
-. . . |4 1 9 |. . 5
-. . . |. 8 . |. 7 9
+sudoku-ai/
+├── puzzles/         # Puzzle input files
+├── performances/    # Performance metrics
+└── graphs/         # Generated visualizations
 ```
 
+## 📊 Performance Analysis
 
-*Step 2 - Divide each subgrid by their row*
-
-```
-53..7....6..195....98....6.
-8...6...34..8.3..17...2...6
-.6....28....419..5....8..79
-```
-
-
-*Step 3 - Concatinate each subgrid row*
-
-```
-53..7....6..195....98....6.8...6...34..8.3..17...2...6.6....28....419..5....8..79
-```
-
-
-### Directories
-
-There are three directories, each with their own distinct objectives, that make up for the entirety of the system and its multitude of offered features. In order to properly understand the system, it's crucial to be familiar with how they collaborate throughout the execution.
-
-#### Puzzles Directory
-
-This directory contains a collection of .txt files of Sudoku puzzles that are parsed and solved as the system is executed.
-
-#### Performances Directory
-
-This directory contains two .json files that are generated during the runtime of the system. Both of these hold data of recursive iterations and backtracking exclusively related to the first approach, *Backtracking & Constraint Propagation*. Note that in *utils.py*, you must run this particular approach by configuring one of the following settings:
-
-```
-runBacktrackConstraintAlgorithm = True
-
-OPTION = { 1, 3 }
-```
-
-
-#### Graphs Directory
-
-This directory contains .png files of the graphs generated as you run the system. These graphs are visual representations of the *Simulated Annealing* and *Backtracking & Constraint Propagation* approaches.
-
-**Backtracking & Constraint Propagation:**
-
+### Backtracking Results
 ![backtracking-output](graphs/run-all-puzzles-backtracking.PNG)
+*Comparative performance across puzzle complexity*
 
-**Simulated Annealing:**
-
-*Energies:*
-
+### Simulated Annealing Analysis
 ![sa-energies](graphs/simulated-annealing-energies.PNG)
-
-
-*Time required:*
+*Energy optimization over iterations*
 
 ![sa-time](graphs/simulated-annealing-time-required.PNG)
+*Time performance analysis*
+
+## 🔧 Technical Documentation
+
+### Puzzle Processing Pipeline
+
+1. **Input Processing**
+   ```python
+   # Raw Input
+   5 3 . |. 7 . |. . .
+   ...
+   
+   # Subgrid Division
+   53..7....6..195....98....6.
+   ...
+   
+   # Final Format
+   53..7....6..195....98....6.8...6...34..8.3..17...2...6.6....28....419..5....8..79
+   ```
+
+2. **Solution Generation**
+3. **Performance Metrics Collection**
+4. **Visualization Generation**
+
+---
+
+*Developed by Joel Mattsson during exchange studies at the University of Ca' Foscari, Italy, Venice*
