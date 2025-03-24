@@ -1,6 +1,6 @@
 # Sudoku AI System 🧩
 
-> An Intelligent Sudoku Solver implementing Backtracking and Simulated Annealing Algorithms
+> An Intelligent Sudoku Solver System implementing Backtracking and Simulated Annealing Algorithms
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
 [![AI](https://img.shields.io/badge/AI-Simulated%20Annealing-green)](https://en.wikipedia.org/wiki/Simulated_annealing)
@@ -9,14 +9,28 @@
 
 ## 📑 Table of Contents
 
-- [Overview](#-overview)
-- [Features](#-features)
-- [Getting Started](#-getting-started)
-- [Configuration Guide](#-configuration-guide)
-- [Adding Custom Puzzles](#-adding-custom-puzzles)
-- [System Architecture](#-system-architecture)
-- [Performance Analysis](#-performance-analysis)
-- [Technical Documentation](#-technical-documentation)
+- [Sudoku AI System 🧩](#sudoku-ai-system-)
+  - [📑 Table of Contents](#-table-of-contents)
+  - [🎯 Overview](#-overview)
+  - [🏗 System Architecture](#-system-architecture)
+  - [✨ Features](#-features)
+  - [🚀 Getting Started](#-getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Quick Start](#quick-start)
+  - [⚙️ Configuration Guide](#️-configuration-guide)
+    - [🎮 Demo Configurations](#-demo-configurations)
+      - [Backtracking \& Constraint Propagation](#backtracking--constraint-propagation)
+      - [Simulated Annealing](#simulated-annealing)
+  - [📝 Adding Custom Puzzles](#-adding-custom-puzzles)
+    - [Supported Formats](#supported-formats)
+    - [Format Rules](#format-rules)
+    - [📦 Core Components](#-core-components)
+    - [📂 Directory Structure](#-directory-structure)
+  - [📊 Performance Analysis](#-performance-analysis)
+    - [Backtracking Results](#backtracking-results)
+    - [Simulated Annealing Analysis](#simulated-annealing-analysis)
+  - [🔧 Technical Documentation](#-technical-documentation)
+    - [Puzzle Processing Pipeline](#puzzle-processing-pipeline)
 
 ## 🎯 Overview
 
@@ -26,6 +40,13 @@ Developed during my exchange studies in Italy (October 2024), this advanced Sudo
 - **Simulated Annealing**: An optimization algorithm inspired by metallurgical annealing
 
 The system demonstrates how AI can simulate human-like problem-solving through trial, error, and learning from past experiences.
+
+
+## 🏗 System Architecture
+
+![system-data-flow](readme-material/system-data-flow.PNG)
+*System data flow and component interaction*
+
 
 ## ✨ Features
 
@@ -109,10 +130,6 @@ The system offers flexible configuration through `utils.py`:
 - Subgrid boundaries: `|` (optional)
 - Grid size: 9x9
 
-## 🏗 System Architecture
-
-![system-data-flow](readme-material/system-data-flow.PNG)
-*System data flow and component interaction*
 
 ### 📦 Core Components
 
