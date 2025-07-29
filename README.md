@@ -1,80 +1,39 @@
-# Sudoku AI System 🧩
+# Sudoku AI System
 
 > An Intelligent Sudoku Solver System implementing Backtracking and Simulated Annealing Algorithms
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
-[![AI](https://img.shields.io/badge/AI-Simulated%20Annealing-green)](https://en.wikipedia.org/wiki/Simulated_annealing)
-[![Algorithm](https://img.shields.io/badge/Algorithm-Backtracking-orange)](https://en.wikipedia.org/wiki/Backtracking)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+## Table of Contents
 
-## 📑 Table of Contents
-
-- [Sudoku AI System 🧩](#sudoku-ai-system-)
-  - [📑 Table of Contents](#-table-of-contents)
-  - [🎯 Overview](#-overview)
-  - [🏗 System Architecture](#-system-architecture)
-  - [✨ Features](#-features)
-  - [🚀 Getting Started](#-getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Quick Start](#quick-start)
-  - [⚙️ Configuration Guide](#️-configuration-guide)
-    - [🎮 Demo Configurations](#-demo-configurations)
+- [Sudoku AI System](#sudoku-ai-system)
+  - [Table of Contents](#table-of-contents)
+  - [System Architecture](#system-architecture)
+  - [Getting Started](#getting-started)
+  - [Configuration Guide](#configuration-guide)
+    - [Demo Configurations](#demo-configurations)
       - [Backtracking \& Constraint Propagation](#backtracking--constraint-propagation)
       - [Simulated Annealing](#simulated-annealing)
-  - [📝 Adding Custom Puzzles](#-adding-custom-puzzles)
+  - [Adding Custom Puzzles](#adding-custom-puzzles)
     - [Supported Formats](#supported-formats)
     - [Format Rules](#format-rules)
-    - [📦 Core Components](#-core-components)
-    - [📂 Directory Structure](#-directory-structure)
-  - [📊 Performance Analysis](#-performance-analysis)
+  - [Performance Analysis](#performance-analysis)
     - [Backtracking Results](#backtracking-results)
     - [Simulated Annealing Analysis](#simulated-annealing-analysis)
-  - [🔧 Technical Documentation](#-technical-documentation)
+  - [Technical Documentation](#technical-documentation)
     - [Puzzle Processing Pipeline](#puzzle-processing-pipeline)
 
-## 🎯 Overview
 
-Developed during my exchange studies in Italy (October 2024), this advanced Sudoku solving system showcases the power of artificial intelligence through two distinct approaches:
-
-- **Backtracking with Constraint Propagation**: A systematic depth-first search strategy
-- **Simulated Annealing**: An optimization algorithm inspired by metallurgical annealing
-
-The system demonstrates how AI can simulate human-like problem-solving through trial, error, and learning from past experiences.
-
-
-## 🏗 System Architecture
+## System Architecture
 
 ![system-data-flow](readme-material/system-data-flow.PNG)
-*System data flow and component interaction*
 
 
-## ✨ Features
+## Getting Started
 
-- **Dual Solving Algorithms**:
-  - 🔍 Backtracking with constraint propagation
-  - 🧪 Simulated annealing optimization
-- **Flexible Configuration**:
-  - Multiple puzzle execution modes
-  - Customizable solving parameters
-- **Performance Analytics**:
-  - Real-time solving metrics
-  - Comparative algorithm analysis
-- **Visual Insights**:
-  - Performance graphs
-  - Solution visualization
+1. Configure settings in `utils.py`
+2. Run `main.py`
 
-## 🚀 Getting Started
 
-### Prerequisites
-- Python 3.8+
-- Required packages (see `requirements.txt`)
-
-### Quick Start
-1. Clone the repository
-2. Configure settings in `utils.py`
-3. Run `main.py`
-
-## ⚙️ Configuration Guide
+## Configuration Guide
 
 The system offers flexible configuration through `utils.py`:
 
@@ -86,7 +45,7 @@ The system offers flexible configuration through `utils.py`:
 | `EASY_HARD_PUZZLES` | Dict | Two puzzle paths | Active when `OPTION=2` |
 | `SELECTED_PUZZLES_LIST` | List | Multiple puzzle paths | Active when `OPTION=3` |
 
-### 🎮 Demo Configurations
+### Demo Configurations
 
 #### Backtracking & Constraint Propagation
 
@@ -108,7 +67,7 @@ The system offers flexible configuration through `utils.py`:
 ![simulated-annealing](readme-material/simulated-annealing.mp4)
 *Temperature-based optimization in action*
 
-## 📝 Adding Custom Puzzles
+## Adding Custom Puzzles
 
 ### Supported Formats
 
@@ -131,25 +90,7 @@ The system offers flexible configuration through `utils.py`:
 - Grid size: 9x9
 
 
-### 📦 Core Components
-
-- **`main.py`**: System entry point and orchestrator
-- **`utils.py`**: Configuration and utility functions
-- **`visualization.py`**: Performance visualization engine
-- **`sudokuPropagation.py`**: Backtracking implementation
-- **`sudokuAnnealing.py`**: Simulated annealing implementation
-- **`puzzleParser.py`**: Input processing module
-
-### 📂 Directory Structure
-
-```
-sudoku-ai/
-├── puzzles/         # Puzzle input files
-├── performances/    # Performance metrics
-└── graphs/         # Generated visualizations
-```
-
-## 📊 Performance Analysis
+## Performance Analysis
 
 ### Backtracking Results
 ![backtracking-output](graphs/run-all-puzzles-backtracking.PNG)
@@ -162,7 +103,7 @@ sudoku-ai/
 ![sa-time](graphs/simulated-annealing-time-required.PNG)
 *Time performance analysis*
 
-## 🔧 Technical Documentation
+## Technical Documentation
 
 ### Puzzle Processing Pipeline
 
@@ -183,7 +124,3 @@ sudoku-ai/
 2. **Solution Generation**
 3. **Performance Metrics Collection**
 4. **Visualization Generation**
-
----
-
-*Developed by Joel Mattsson during exchange studies at the University of Ca' Foscari, Italy, Venice*
